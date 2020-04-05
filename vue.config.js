@@ -5,7 +5,7 @@ module.exports = {
 	devServer: {
 		host: 'localhost', // 主机名
 		hot: true, // 热更新
-		port: 8082, // 设置端口
-		proxy: 'http://172.16.173.143:80/Estore' // 设置代理，为了解决前后端分离开发时的同源问题
+		port: 8082 // 设置端口
+		// proxy: 'http://172.16.173.153:80/Estore' // 设置代理，为了解决前后端分离开发时的同源问题
 	}
 }
