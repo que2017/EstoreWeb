@@ -36,12 +36,12 @@
 			return {
 				url: this.domainUrl + '/servlet/ValidateImgServlet',
 				ruleForm: {
-					username: 'zhang',
-					password: '123',
-					password2: '123',
-					nickname: 'que',
-					email: 'que@qq.com',
-					validateStr: 'huiashiw'
+					username: '',
+					password: '',
+					password2: '',
+					nickname: '',
+					email: '',
+					validateStr: ''
 				},
 				rules: {
 					username: [
@@ -53,7 +53,7 @@
 									callback();
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					],
@@ -66,7 +66,7 @@
 									callback();
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					],
@@ -81,7 +81,7 @@
 									callback();
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					],
@@ -94,7 +94,7 @@
 									callback();
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					],
@@ -113,7 +113,7 @@
 									}
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					],
@@ -126,7 +126,7 @@
 									callback();
 								}
 							},
-							trigger: 'bulr',
+							trigger: 'blur',
 							required: true
 						}
 					]

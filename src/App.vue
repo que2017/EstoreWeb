@@ -1,17 +1,20 @@
 <template>
   <div id="app">
 	  <div class="container">
-		<regist></regist>
+		<Login></Login>
 	  </div>
   </div>
 </template>
 
 <script>
-	import regist from './components/regist/regist.vue'
+	import Regist from './components/regist/regist.vue'
+	import Login from './components/login/login.vue'
+	
 	export default {
 		name: 'app',
 		components: {
-			regist
+			Login,
+			Regist
 		}
 	}
 </script>
