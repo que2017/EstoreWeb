@@ -36,19 +36,21 @@
 			return {
 				url: this.domainUrl + '/servlet/ValidateImgServlet',
 				ruleForm: {
-					username: '',
-					password: '',
-					password2: '',
-					nickname: '',
-					email: '',
-					validateStr: ''
+					username: 'zhang',
+					password: '123',
+					password2: '123',
+					nickname: 'que',
+					email: 'que@qq.com',
+					validateStr: 'huiashiw'
 				},
 				rules: {
 					username: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
-									return callback(new Error('用户名不能为空！'));
+								if (value === '') {
+									callback(new Error('用户名不能为空！'));
+								} else {
+									callback();
 								}
 							},
 							trigger: 'bulr',
@@ -58,8 +60,10 @@
 					password: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
-									return callback(new Error('密码名不能为空！'));
+								if (value === '') {
+									callback(new Error('密码名不能为空！'));
+								} else {
+									callback();
 								}
 							},
 							trigger: 'bulr',
@@ -69,10 +73,12 @@
 					password2: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
+								if (value === '') {
 									callback(new Error('请再次输入密码！'));
 								} else if (value !== this.ruleForm.password) {
 									callback(new Error('两次密码不一致！'));
+								} else {
+									callback();
 								}
 							},
 							trigger: 'bulr',
@@ -82,8 +88,10 @@
 					nickname: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
-									return callback(new Error('昵称不能为空！'));
+								if (value === '') {
+									callback(new Error('昵称不能为空！'));
+								} else {
+									callback();
 								}
 							},
 							trigger: 'bulr',
@@ -93,13 +101,15 @@
 					email: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
+								if (value === '') {
 									callback(new Error('邮箱不能为空！'));
 								} else {
 									// 校验邮箱格式
 									let reg = /^\w+@\w+(\.\w+)+$/;
 									if (!reg.test(value)) {
 										callback(new Error('邮箱格式不正确！'));
+									} else {
+										callback();
 									}
 								}
 							},
@@ -110,8 +120,10 @@
 					validateStr: [
 						{
 							validator: (rule, value, callback) => {
-								if (!value) {
-									return callback(new Error('请输入验证码！'));
+								if (value === '') {
+									callback(new Error('请输入验证码！'));
+								} else {
+									callback();
 								}
 							},
 							trigger: 'bulr',
@@ -123,10 +135,25 @@
 		},
 		methods: {
 			submitForm(formName) {
+				let data = this.ruleForm;
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						console.log('表单校验成功！');
+						// 准备数据
+						let arr = [];
+						for (let key in data) {
+							arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+						}
 						// 向服务器提交注册
+						this.$http.post('/servlet/RegistServlet', arr.join('&'), {
+							'headers': {
+								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+							}
+						}).then(res => {
+							console.log(res);
+						}, err => {
+							console.log(err);
+						});
 					} else {
 						console.log('表单校验失败！');
 						return false;
