@@ -1,0 +1,11 @@
+module.exports = {
+	// 配置生产环境先web应用的部署路径为/Estore/，开发环境的路径为域名根路径
+	publicPath: process.env.NODE_ENV === 'production' ? '/Estore/' : '/',
+	// 配置开发环境服务器的参数
+	devServer: {
+		host: 'localhost', // 主机名
+		hot: true, // 热更新
+		port: 8082, // 设置端口
+		proxy: 'http://172.16.173.143:80/Estore' // 设置代理，为了解决前后端分离开发时的同源问题
+	}
+}
