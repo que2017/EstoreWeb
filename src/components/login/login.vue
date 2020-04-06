@@ -65,7 +65,7 @@
 							arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
 						}
 						// 执行登陆请求操作
-						this.$http.post('/servlet/LoginServlet', arr.join('&'), {
+						this.$http.post('/Estore/servlet/LoginServlet', arr.join('&'), {
 							'headers': {
 								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 							}

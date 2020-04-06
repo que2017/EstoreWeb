@@ -34,7 +34,7 @@
 	export default {
 		data () {
 			return {
-				url: '/servlet/ValidateImgServlet',
+				url: '/Estore/servlet/ValidateImgServlet',
 				ruleForm: {
 					username: '',
 					password: '',
@@ -145,7 +145,7 @@
 							arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
 						}
 						// 向服务器提交注册
-						this.$http.post('/servlet/RegistServlet', arr.join('&'), {
+						this.$http.post('/Estore/servlet/RegistServlet', arr.join('&'), {
 							'headers': {
 								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 							}
@@ -169,7 +169,7 @@
 				this.$refs[formName].resetFields();
 			},
 			changeImg() {
-				this.url = this.domainUrl + '/servlet/ValidateImgServlet?time=' + new Date().getTime()
+				this.url = '/Estore/servlet/ValidateImgServlet?time=' + new Date().getTime()
 			}
 		}
 	}

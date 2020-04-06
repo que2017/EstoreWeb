@@ -8,11 +8,11 @@ module.exports = {
 		port: 8082, // 设置端口
 		// 设置代理，为了解决前后端分离开发时的同源问题
 		proxy: {
-			'/servlet': {
-				target: 'http://172.16.173.131:80/Estore',
+			'/Estore': {
+				target: 'http://172.16.173.131:80',
 				changeOrigin: true,
 				pathRewrite: {
-					'^/servlet': '/servlet'
+					'^/Estore': '/Estore'
 				}
 			}
 		}
