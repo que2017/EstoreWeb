@@ -70,12 +70,18 @@
 								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 							}
 						}).then(res => {
-							console.log(res);
+							// 弹出消息提醒登陆成功
+							this.$message({
+								message: '恭喜你，登陆成功！',
+								type: 'success'
+							});
 						}, err => {
-							console.log(err);
+							// 弹出消息提醒登陆失败
+							this.$message.error('登陆失败，请检查用户名和密码！');
 						});
 					} else {
 						console.log('表单校验失败！');
+						return false;
 					}
 				});
 			},

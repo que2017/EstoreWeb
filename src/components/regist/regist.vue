@@ -150,9 +150,12 @@
 								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 							}
 						}).then(res => {
-							console.log(res);
+							this.$message({
+								message: '恭喜你，注册成功！',
+								type: 'success'
+							});
 						}, err => {
-							console.log(err);
+							this.$message.error('注册失败，请稍后重试！');
 						});
 					} else {
 						console.log('表单校验失败！');
