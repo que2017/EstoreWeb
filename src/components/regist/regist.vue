@@ -34,7 +34,7 @@
 	export default {
 		data () {
 			return {
-				url: this.domainUrl + '/servlet/ValidateImgServlet',
+				url: '/servlet/ValidateImgServlet',
 				ruleForm: {
 					username: '',
 					password: '',
