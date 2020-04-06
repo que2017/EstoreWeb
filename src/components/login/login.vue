@@ -75,6 +75,8 @@
 								message: '恭喜你，登陆成功！',
 								type: 'success'
 							});
+							// 跳转到欢迎页
+							this.$router.push('welcome');
 						}, err => {
 							// 弹出消息提醒登陆失败
 							this.$message.error('登陆失败，请检查用户名和密码！');

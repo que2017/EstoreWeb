@@ -10,7 +10,8 @@
     "core-js": "^2.6.5",
     "element-ui": "^2.13.0",
     "vue": "^2.6.10",
-    "vue-resource": "^1.5.1"
+    "vue-resource": "^1.5.1",
+    "vue-router": "^2.8.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",

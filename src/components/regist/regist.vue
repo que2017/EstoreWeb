@@ -154,6 +154,8 @@
 								message: '恭喜你，注册成功！',
 								type: 'success'
 							});
+							// 跳转到主页
+							this.$router.push("welcome");
 						}, err => {
 							this.$message.error('注册失败，请稍后重试！');
 						});

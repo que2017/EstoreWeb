@@ -5,7 +5,7 @@
 	  </div>
 	  <div class="container">
 		  <div class="content">
-			  <Welcome></Welcome>
+			  <router-view></router-view>
 		  </div>
 	  </div>
   </div>
