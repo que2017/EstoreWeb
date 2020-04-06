@@ -9,7 +9,7 @@ module.exports = {
 		// 设置代理，为了解决前后端分离开发时的同源问题
 		proxy: {
 			'/servlet': {
-				target: 'http://172.16.173.153:80/Estore',
+				target: 'http://172.16.173.139:80/Estore',
 				changeOrigin: true,
 				pathRewrite: {
 					'^/servlet': '/servlet'

@@ -55,10 +55,25 @@
 		},
 		methods: {
 			doLogin(fromName) {
+				let data = this.ruleForm;
 				this.$refs[fromName].validate((value) => {
 					if (value) {
 						console.log('表单校验成功！');
+						// 准备数据
+						let arr = [];
+						for (let key in data) {
+							arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+						}
 						// 执行登陆请求操作
+						this.$http.post('/servlet/LoginServlet', arr.join('&'), {
+							'headers': {
+								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+							}
+						}).then(res => {
+							console.log(res);
+						}, err => {
+							console.log(err);
+						});
 					} else {
 						console.log('表单校验失败！');
 					}
