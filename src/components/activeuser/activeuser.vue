@@ -11,7 +11,7 @@
         },
         created() {
 			let activecode = this.$route.query.activecode;
-        	this.$http.get('/Estore/servlet/ActiveUserServlet', {activecode}).then(res => {
+        	this.$http.get('/Estore/servlet/ActiveUserServlet', {params: {activecode}}).then(res => {
 				// 弹出消息提醒
 				this.$message({
 					message: '恭喜你，用户激活成功！',
