@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Welcome from '../components/welcome/welcome.vue'
 import Login from '../components/login/login.vue'
 import Regist from '../components/regist/regist.vue'
+import ActiveUser from '../components/activeuser/activeuser.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,11 @@ export default new VueRouter({
 			path: '/regist',
 			name: 'Regist',
 			component: Regist
+		},
+		{
+			path: '/activeuser',
+			name: 'ActiveUser',
+			component: ActiveUser
 		}
 	]
 })
