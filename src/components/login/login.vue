@@ -70,16 +70,35 @@
 								'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 							}
 						}).then(res => {
-							// 弹出消息提醒登陆成功
-							this.$message({
-								message: '恭喜你，登陆成功！',
-								type: 'success'
-							});
-							// 跳转到欢迎页
-							this.$router.push('welcome');
+							var resData = eval('(' + res.bodyText + ')');
+							console.log(resData);
+							if (resData.result == 'succ') {
+								// 弹出消息提醒登陆成功
+								this.$message({
+									message: '恭喜你，登陆成功！',
+									type: 'success'
+								});
+								// 跳转到欢迎页
+								this.$router.push('welcome');
+							} else {
+								console.log(resData.code);
+								switch (resData.code) {
+									case '101':
+										this.$message.error('登陆失败：用户名或密码不正确！');
+										break;
+									case '102':
+										this.$message.error('登陆失败：用户名不存在！');
+										break;
+									case '103':
+										this.$message.error('登陆失败：用户未激活，请打开激活链接进行激活后再登陆！');
+										break;
+									default:
+										break;
+								}
+							}
 						}, err => {
 							// 弹出消息提醒登陆失败
-							this.$message.error('登陆失败，请检查用户名和密码！');
+							this.$message.error('登陆失败：请稍后再试！');
 						});
 					} else {
 						console.log('表单校验失败！');
