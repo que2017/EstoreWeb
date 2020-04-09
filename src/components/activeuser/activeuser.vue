@@ -112,15 +112,26 @@
 					switch (resData.code) {
 						case '301':
 							this.$message.error('激活链接不正确，请确认激活链接后重试！');
+							this.loading = false;
+							this.showSendAgain = true;
 							break;
 						case '302':
 							this.$message.error('激活链接已失效，请重新发送激活链接！');
+							this.loading = false;
+							this.showSendAgain = true;
+							break;
+						case '303':
+							this.$message.error('此用户已激活，请勿重复激活！');
+							setTimeout(() => {
+								this.loading = false;
+								this.$router.push('welcome');
+							}, 2000);
 							break;
 						default:
+							this.loading = false;
+							this.showSendAgain = true;
 							break;
 					}
-					this.loading = false;
-					this.showSendAgain = true;
 				}
 			}, err => {
 				this.$message.error('用户激活失败，请确认激活链接是否正确！');
