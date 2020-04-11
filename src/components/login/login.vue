@@ -8,6 +8,9 @@
 				<el-input v-model="ruleForm.password" type="password"></el-input>
 			</el-form-item>
 			<el-form-item>
+				<el-checkbox v-model="rememberUser">记住用户名</el-checkbox>
+			</el-form-item>
+			<el-form-item>
 				<el-button type="primary" @click="doLogin('ruleForm')">登陆</el-button>
 				<el-button @click="doReset('ruleForm')">重置</el-button>
 			</el-form-item>
@@ -19,6 +22,7 @@
 	export default {
 		data () {
 			return {
+				rememberUser: false,
 				ruleForm: {
 					username: '',
 					password: ''
@@ -59,6 +63,9 @@
 				this.$refs[fromName].validate((value) => {
 					if (value) {
 						console.log('表单校验成功！');
+						// 保存用户名到cookie
+						console.log(data['username']);
+						document.cookie = 'username=' + (this.rememberUser ? encodeURIComponent(data['username']) : '') + ';path=/;expires=-1';
 						// 准备数据
 						let arr = [];
 						for (let key in data) {
@@ -108,6 +115,20 @@
 			},
 			doReset(fromName) {
 				this.$refs[fromName].resetFields();
+			}
+		},
+		created() {
+			// 读取cookie，解析username
+			if (document.cookie.length > 0) {
+				let c = document.cookie.split(';');
+				for (let i = 0; i < c.length; i++) {
+					let arr = c[i].split('=');
+					if (arr[0] === 'username' && arr[1] !== '') {
+						this.ruleForm.username = decodeURIComponent(arr[1]);
+						this.rememberUser = true;
+						return;
+					}
+				}
 			}
 		}
 	}
