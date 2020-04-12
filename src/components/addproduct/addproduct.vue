@@ -162,21 +162,21 @@
 				this.ruleForm.imgurl = URL.createObjectURL(file.raw);
 			},
 			beforeAvatarUpload(file) {
-				const isJPG = file.type === 'image/jpeg';
 				const isLt2M = file.size / 1024 / 1024 < 2;
-
-				if (!isJPG) {
-					this.$message.error('商品图片只能是 JPG 格式!');
-				}
 				if (!isLt2M) {
 					this.$message.error('商品图片大小不能超过 2MB!');
 				}
-				return isJPG && isLt2M;
+				return isLt2M;
 			},
 			addProduct(fromName) {
 				this.$refs[fromName].validate(valid => {
 					if (valid) {
 						this.$refs.upload.submit();
+						this.$message({
+							message: '添加成功！',
+							type: 'success'
+						});
+						this.$router.push("welcome");
 					} else {
 						return false;
 					}

@@ -5,6 +5,7 @@ import Login from '../components/login/login.vue'
 import Regist from '../components/regist/regist.vue'
 import ActiveUser from '../components/activeuser/activeuser.vue'
 import AddProduct from '../components/addproduct/addproduct.vue'
+import ListProduct from '../components/listproduct/listproduct.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ export default new VueRouter({
 			path: '/addproduct',
 			name: 'AddProduct',
 			component: AddProduct
+		},
+		{
+			path: '/listproduct',
+			name: 'ListProduct',
+			component: ListProduct
 		}
 	]
 })
