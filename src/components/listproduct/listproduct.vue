@@ -1,6 +1,6 @@
 <template>
     <div class="product-container">
-		<productcard class="product-item" v-for="item in listProduct" :product="item"></productcard>
+		<productcard v-for="item in listProduct" :product="item" @click.native="jumpToProductDetail(item.id)" class="product-item"></productcard>
 	</div>
 </template>
 
@@ -14,7 +14,9 @@
 			} 
         },
         methods: {
-            
+            jumpToProductDetail(productId) {
+				this.$router.push('productdetail?id=' + productId);
+			}
         },
 		created() {
 			this.$http.get('/Estore/servlet/ListAllProductServlet').then(res => {

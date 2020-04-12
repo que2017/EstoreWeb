@@ -10,7 +10,7 @@ module.exports = {
 		// 设置代理后Node.js服务器会把所有访问localhost:8082的请求代理到proxy.target下，这样就绕过了同源问题。
 		proxy: {
 			'/Estore': {
-				target: 'http://172.16.173.150:80',
+				target: 'http://172.16.173.147:80',
 				changeOrigin: true,
 				pathRewrite: {
 					'^/Estore': '/Estore'
