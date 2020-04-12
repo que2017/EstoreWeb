@@ -20,7 +20,8 @@
         },
         methods: {
             getImg(url) {
-				return '/Estore/servlet/ProductImgServlet?imgurl=' + url;
+				let lastDot = url.lastIndexOf('.');
+				return '/Estore/servlet/ProductImgServlet?imgurl=' + url.substring(0, lastDot) + '_s' + url.substring(lastDot);
 			}
         }
     } 
