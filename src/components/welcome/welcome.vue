@@ -1,10 +1,13 @@
 <template>
     <div>
 		<h2 v-show="!userChecked">欢迎来到Estore商城！您可以：</h2>
-		<h2 v-show="userChecked">欢迎回来{{username}}！您可以：</h2>
+		<h2 v-show="userChecked">欢迎回来，{{username}}！您可以：</h2>
 		<div>
 			<el-button v-show="!userChecked" type="primary" @click="jumpToPage('login')">登陆</el-button>
 			<el-button v-show="!userChecked" @click="jumpToPage('regist')">注册</el-button>
+			<el-button v-show="userChecked" type="primary" @click="jumpToPage('addproduct')">添加商品</el-button>
+			<el-button v-show="userChecked" type="primary" @click="jumpToPage('productlist')">商品列表</el-button>
+			<el-button v-show="userChecked" type="primary" @click="jumpToPage('productcart')">查看购物车</el-button>
 			<el-button v-show="userChecked" @click="logout()">注销</el-button>
 		</div>
 	</div>

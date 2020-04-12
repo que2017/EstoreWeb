@@ -31,6 +31,8 @@
 </template>
 
 <script>
+	import md5 from 'js-md5';
+	
 	export default {
 		data () {
 			return {
@@ -142,7 +144,11 @@
 						// 准备数据
 						let arr = [];
 						for (let key in data) {
-							arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+							if (key === 'password') {
+								arr.push(encodeURIComponent(key) + '=' + md5(encodeURIComponent(data[key])));
+							} else {
+								arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+							}
 						}
 						// 向服务器提交注册
 						this.$http.post('/Estore/servlet/RegistServlet', arr.join('&'), {
