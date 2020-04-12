@@ -62,7 +62,7 @@
 			display flex
 			flex-direction column
 			justify-content flex-end
-			margin-left 2rem
+			margin 2rem
 			.product-text
 				margin-bottom 1rem
 				font-size 1.2rem

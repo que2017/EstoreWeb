@@ -37,6 +37,7 @@
 		display flex
 		flex-direction row
 		flex-wrap wrap
+		justify-content center
 		width 100%
 		.product-item
 			cursor pointer
