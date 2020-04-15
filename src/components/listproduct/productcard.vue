@@ -1,6 +1,8 @@
 <template>
     <div class="card-wrapper">
-		<img :src="getImg(product.imgurl)" class="prod-img"/>
+		<div class="prod-img-wrapper">
+			<img :src="getImg(product.imgurl)" class="prod-img"/>
+		</div>
 		<div class="product-name">{{product.name}}</div>
 		<div>
 			<span class="product-category">{{product.category}}</span>
@@ -32,11 +34,18 @@
 		border 0.125rem solid #ccc
 		border-radius 0.5rem
 		padding-bottom 1rem
-	.prod-img
-		display block
+	.prod-img-wrapper
+		display flex
+		justify-content center
+		flex-direction column
 		width 12.5rem
 		height 12.5rem
 		margin 0.75rem
+		.prod-img
+			width auto
+			height auto
+			max-width 100%
+			max-height 100%
 	.product-name
 		border-top 0.125rem solid black
 		padding-top 0.75rem
