@@ -26,7 +26,7 @@
 				return '/Estore/servlet/ProductImgServlet?imgurl=' + url.substring(0, lastDot) + '_s' + url.substring(lastDot);
 			}
         }
-    } 
+    }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

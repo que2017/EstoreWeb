@@ -30,6 +30,19 @@
 			},
 			addToCart(id) {
 				console.log(id);
+				this.$http.get('/Estore/servlet/AddToCartServlet', {params: {id}}).then(res => {
+					var resData = eval('(' + res.bodyText + ')');
+					if (resData.result === 'succ') {
+						this.$message({
+							message: '添加成功',
+							type: 'success'
+						});
+					} else {
+						this.$message.error('加入购物车失败，请稍后重试！');
+					}
+				}, err => {
+					this.$message.error('加入购物车失败，请稍后重试！');
+				})
 			}
         },
 		created() {
