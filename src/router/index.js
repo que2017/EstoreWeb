@@ -7,6 +7,7 @@ import ActiveUser from '../components/activeuser/activeuser.vue'
 import AddProduct from '../components/addproduct/addproduct.vue'
 import ListProduct from '../components/listproduct/listproduct.vue'
 import ProductDetail from '../components/productdetail/productdetail.vue'
+import CartProduct from '../components/cartproduct/cartproduct.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ export default new VueRouter({
 			path: '/productdetail',
 			name: 'ProductDetail',
 			component: ProductDetail
+		},
+		{
+			path: '/cartproduct',
+			name: 'CartProduct',
+			component: CartProduct
 		}
 	]
 })
