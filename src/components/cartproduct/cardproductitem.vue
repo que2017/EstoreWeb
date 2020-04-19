@@ -6,9 +6,9 @@
 		<span class="prod-text">{{product.name}}</span>
 		<span class="prod-text">{{product.category}}</span>
 		<span class="prod-text">￥{{product.price}}</span>
-		<el-input-number size="medium" v-model="product.num" :min="1" :max="parseInt(product.pnum)"></el-input-number>
+		<el-input-number @change="changePNum(product.num, product.id)" size="medium" v-model="product.num" :min="1" :max="parseInt(product.pnum)"></el-input-number>
 		<span class="prod-text">{{product.pnum}}</span>
-		<span class="prod-total">￥{{product.price * product.num}}</span>
+		<span class="prod-total">￥{{(product.price * product.num).toFixed(2)}}</span>
 		<el-button type="danger" @click="deleteProduct(product.id)">删除</el-button>
 	</div>
 </template>
@@ -29,8 +29,28 @@
 			jumpToProductDetail(productId) {
 				this.$router.push('productdetail?id=' + productId);
 			},
-			deleteProduct(productId) {
+			deleteProduct(id) {
+				this.$http.get('/Estore/servlet/DeleteCartProductServlet', {params:{id}}).then(res => {
+					let data = eval('(' + res.bodyText + ')');
+					if (data.result === 'succ') {
+						this.$router.go(0)
+					} else {
+						this.$message.error('删除失败，商品未找到！')
+					}
+				}, err => {
+					this.$message.error('删除失败，请稍后重试！');
+				});
+			},
+			changePNum(num, id) {
 				
+				this.$http.get('/Estore/servlet/ChangeCartProductNumServlet', {params:{id,num}}).then(res => {
+					let data = eval('(' + res.bodyText + ')');
+					if (data.result === 'fail') {
+						this.$router.go(0);
+					}
+				}, err => {
+					this.$router.go(0);
+				});
 			}
         }
     } 

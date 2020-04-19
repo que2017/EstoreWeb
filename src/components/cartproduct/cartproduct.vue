@@ -14,6 +14,9 @@
 			</div>
 			<cartproductitem v-for="item in cartDataList" :product="item"></cartproductitem>
 			<div class="total-price">
+				<div class="clear-cart">
+					<el-button type="danger" @click="clearCart()">清空购物车</el-button>
+				</div>
 				<div class="product-total-price">总计：<span style="color: red;">￥{{getTotalProce()}}</span></div>
 				<el-button type="primary">结账</el-button>
 			</div>
@@ -40,12 +43,18 @@
 					price += this.cartDataList[i].price * this.cartDataList[i].num;
 				}
 				return price;
+			},
+			clearCart() {
+				this.$http.get('/Estore/servlet/ClearCartServlet').then(res => {
+					this.$router.go(0);
+				}, err => {
+					this.$router.go(0);
+				})
 			}
         },
 		created() {
 			this.$http.get('/Estore/servlet/ListCartProductServlet').then(res => {
 				this.cartDataList = eval('(' + res.bodyText + ')').cartproductlist;
-				
 			})
 		},
 		components: {
@@ -85,8 +94,10 @@
 	.total-price
 		display flex
 		flex-direction row
-		justify-content flex-end
 		margin 2rem 0
+		.clear-cart
+			flex-grow 1
+			margin-left 2rem
 		.product-total-price
 			width 14rem
 			font-size 1.5rem
