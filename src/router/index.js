@@ -8,6 +8,7 @@ import AddProduct from '../components/addproduct/addproduct.vue'
 import ListProduct from '../components/listproduct/listproduct.vue'
 import ProductDetail from '../components/productdetail/productdetail.vue'
 import CartProduct from '../components/cartproduct/cartproduct.vue'
+import Order from '../components/order/order.vue'
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,11 @@ export default new VueRouter({
 			path: '/cartproduct',
 			name: 'CartProduct',
 			component: CartProduct
+		},
+		{
+			path: '/order',
+			name: 'Order',
+			component: Order
 		}
 	]
 })

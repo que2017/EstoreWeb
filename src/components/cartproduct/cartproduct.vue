@@ -18,7 +18,7 @@
 					<el-button type="danger" @click="clearCart()">清空购物车</el-button>
 				</div>
 				<div class="product-total-price">总计：<span style="color: red;">￥{{getTotalProce()}}</span></div>
-				<el-button type="primary">结账</el-button>
+				<el-button type="primary" @click="jumpToPage('order')">生成订单</el-button>
 			</div>
 		</div>
 	</div>
@@ -55,7 +55,8 @@
 		created() {
 			this.$http.get('/Estore/servlet/ListCartProductServlet').then(res => {
 				this.cartDataList = eval('(' + res.bodyText + ')').cartproductlist;
-			})
+				this.$store.dispatch('setCartData', this.cartDataList);
+			});
 		},
 		components: {
 			cartproductitem
