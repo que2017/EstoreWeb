@@ -9,6 +9,7 @@ import ListProduct from '../components/listproduct/listproduct.vue'
 import ProductDetail from '../components/productdetail/productdetail.vue'
 import CartProduct from '../components/cartproduct/cartproduct.vue'
 import Order from '../components/order/order.vue'
+import ViewOrder from '../components/vieworder/vieworder.vue'
 
 Vue.use(VueRouter)
 
@@ -64,6 +65,11 @@ export default new VueRouter({
 			path: '/order',
 			name: 'Order',
 			component: Order
+		},
+		{
+			path: '/vieworder',
+			name: 'ViewOrder',
+			component: ViewOrder
 		}
 	]
 })

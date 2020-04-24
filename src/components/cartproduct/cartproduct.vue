@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<div v-show="cartDataList.length <= 0" style="font-size: 1.2rem;">购物车空空如也~~ 先去<el-link style="font-size: 1.2rem;" type="primary" @click="jumpToPage('listproduct')">挑点东西吧</el-link></div>
+		<div v-show="cartDataList.length <= 0" style="font-size: 1.2rem;">
+			购物车空空如也~~ 先去<el-link style="font-size: 1.2rem;" type="primary" @click="jumpToPage('listproduct')">挑点东西吧</el-link>
+		</div>
 		<div v-show="cartDataList.length > 0">
 			<div class="product-head">
 				<span class="product-img">缩略图</span>
