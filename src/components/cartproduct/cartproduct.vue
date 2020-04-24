@@ -56,7 +56,7 @@
         },
 		created() {
 			this.$http.get('/Estore/servlet/ListCartProductServlet').then(res => {
-				this.cartDataList = eval('(' + res.bodyText + ')').cartproductlist;
+				this.cartDataList = eval('(' + res.bodyText + ')').productlist;
 				this.$store.dispatch('setCartData', this.cartDataList);
 			});
 		},

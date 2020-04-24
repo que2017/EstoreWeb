@@ -26,6 +26,7 @@
 	.order-item-wrapper
 		display flex
 		flex-direction row
+		justify-content space-between
 		align-items center
 		flex-wrap nowrap
 		padding 1rem 0

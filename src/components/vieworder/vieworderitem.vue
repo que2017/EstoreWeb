@@ -11,14 +11,12 @@
 			<el-button type="primary" size="small">支付订单</el-button>
 			<el-button type="danger" size="small">删除订单</el-button>
 		</div>
-		<div>
-			
-		</div>
+		<orderlist :productList="order.productlist"></orderlist>
 	</div>
 </template>
 
 <script>
-	import orderitem from '../order/orderitem.vue'
+	import orderlist from '../order/orderlist.vue'
 	
     export default {
 		props: {
@@ -26,17 +24,14 @@
 		},
         data () {
             return {
-				productList: []
+				
 			} 
         },
         methods: {
             
         },
-		created() {
-			
-		},
 		components: {
-			orderitem
+			orderlist
 		}
     } 
 </script>
@@ -62,6 +57,7 @@
 		display flex
 		flex-direction row
 		padding 1rem
+		background-color #ddd
 		.vieworder-addr
 			display flex
 			flex-direction column
