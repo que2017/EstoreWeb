@@ -4,6 +4,7 @@
 			<el-input style="width: 20rem;" type="textarea" :autosize="{minRows: 3}" placeholder="请输入地址" v-model="address"></el-input>
 			<el-button style="margin-left: 2rem;" type="primary" @click="submitOrder()">提交订单</el-button>
 		</div>
+		<span class="order-detail-head">商品详情</span>
 		<orderlist :productList="cartDataList"></orderlist>
 	</div>
 </template>
@@ -53,4 +54,9 @@
 	.order-wrapper
 		display flex
 		flex-direction column
+		.order-detail-head
+			margin 1rem 0
+			font-size 1.6rem
+			font-weight bold
+			text-align center
 </style>

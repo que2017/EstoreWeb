@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin: 2rem 0;">
 		<div class="view-order-empty" v-if="orderList.length <= 0">
 			暂无订单~~现在去<el-link style="font-size: 1.2rem;" type="primary" @click="jumpToPage('cartproduct')">下单</el-link>
 		</div>
@@ -38,5 +38,7 @@
 		font-weight bold
 	.view-order-wrapper
 		margin-bottom 1.5rem
+		border-radius 0.25rem
+		overflow hidden
 		box-shadow 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
 </style>
