@@ -10,6 +10,7 @@ import ProductDetail from '../components/productdetail/productdetail.vue'
 import CartProduct from '../components/cartproduct/cartproduct.vue'
 import Order from '../components/order/order.vue'
 import ViewOrder from '../components/vieworder/vieworder.vue'
+import PayOrder from '../components/payorder/payorder.vue'
 
 Vue.use(VueRouter)
 
@@ -70,6 +71,11 @@ export default new VueRouter({
 			path: '/vieworder',
 			name: 'ViewOrder',
 			component: ViewOrder
+		},
+		{
+			path: '/payorder',
+			name: 'PayOrder',
+			component: PayOrder
 		}
 	]
 })

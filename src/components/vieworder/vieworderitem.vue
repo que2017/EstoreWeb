@@ -8,7 +8,7 @@
 		</div>
 		<div class="vieworder-payorder">
 			<div class="vieworder-addr">收货地址：{{order.receiverinfo}}</div>
-			<el-button v-show="order.paystate !== '1'" type="primary" size="small" @click="payOrder(order.id)">支付订单</el-button>
+			<el-button v-show="order.paystate !== '1'" type="primary" size="small" @click="payOrder()">支付订单</el-button>
 			<el-button type="danger" size="small" @click="deleteOrder(order.id)">删除订单</el-button>
 		</div>
 		<orderlist :productList="order.productlist"></orderlist>
@@ -28,8 +28,9 @@
 			} 
         },
         methods: {
-            payOrder(orderId) {
-				console.log(orderId);
+            payOrder() {
+				this.$store.dispatch('setOrderData', this.order);
+				this.$router.push('payorder');
 			},
 			deleteOrder(orderId) {
 				this.$http.get('Estore/servlet/DeleteOrderServlet', {params:{orderId}}).then(res => {
