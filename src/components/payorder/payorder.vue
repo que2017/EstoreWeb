@@ -135,12 +135,22 @@
 			justify-content center
 			input
 				display inline-block
-				font-size 1.2rem
+				width 6.125rem
+				height 2.5rem
+				font-size 0.875rem
 				border-radius 4px
 				font-weight bold
-				padding 4px 8px
+				cursor pointer
+			input:hover
+				color #409EFF
+				border-color #c6e2ff
+				background-color #ecf5ff
 			.yeepay-form-pay
 				color white
 				background-color #409EFF
 				margin-right 1rem
+			.yeepay-form-pay:hover
+				color #FFF
+				border-color #66b1ff
+				background-color #66b1ff
 </style>
