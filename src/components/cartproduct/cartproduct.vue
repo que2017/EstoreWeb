@@ -44,7 +44,7 @@
 				for(let i = 0; i < this.cartDataList.length; i++) {
 					price += this.cartDataList[i].price * this.cartDataList[i].num;
 				}
-				return price;
+				return price.toFixed(2);
 			},
 			clearCart() {
 				this.$http.get('/Estore/servlet/ClearCartServlet').then(res => {

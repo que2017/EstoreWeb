@@ -8,7 +8,7 @@
 		<span class="prod-text">￥{{product.price}}</span>
 		<el-input-number @change="changePNum(num, product.id)" size="medium" v-model="num" :min="1" :max="parseInt(product.pnum)"></el-input-number>
 		<span class="prod-text">{{product.pnum}}</span>
-		<span class="prod-total">￥{{(product.price * product.num).toFixed(2)}}</span>
+		<span class="prod-total">￥{{(product.price * num).toFixed(2)}}</span>
 		<el-button type="danger" @click="deleteProduct(product.id)">删除</el-button>
 	</div>
 </template>
@@ -49,7 +49,7 @@
 					if (data.result === 'fail') {
 						this.$router.go(0);
 					} else {
-						this.$store.dispatch('setCartProductNum', this.num);
+						this.$store.dispatch('setCartProductNum', {id, num});
 					}
 				}, err => {
 					this.$router.go(0);
