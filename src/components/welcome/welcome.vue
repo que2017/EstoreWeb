@@ -9,6 +9,9 @@
 			<el-button v-show="userChecked" type="primary" @click="jumpToPage('listproduct')">商品列表</el-button>
 			<el-button v-show="userChecked" type="primary" @click="jumpToPage('cartproduct')">查看购物车</el-button>
 			<el-button v-show="userChecked" type="primary" @click="jumpToPage('vieworder')">查看订单</el-button>
+			<a class="download-salelist" href="Estore/servlet/SaleListServlet">
+				<el-button v-show="userChecked" type="primary">销售榜单</el-button>
+			</a>
 			<el-button v-show="userChecked" @click="logout()">注销</el-button>
 		</div>
 	</div>
@@ -32,6 +35,9 @@
 				}, err => {
 					this.$router.go(0);
 				})
+			},
+			downloadSaleList() {
+				
 			}
         },
 		created() {
@@ -52,4 +58,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+	.download-salelist
+		display inline-block
+		padding 0 10px
 </style>
